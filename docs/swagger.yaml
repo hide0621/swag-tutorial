@@ -1,0 +1,44 @@
+definitions:
+  main.Error:
+    properties:
+      id:
+        type: string
+      message:
+        type: string
+    type: object
+  main.User:
+    properties:
+      id:
+        type: string
+      last_update_date:
+        type: string
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: get the users list
+      parameters:
+      - description: Service you want to get the users list
+        in: query
+        name: service
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Error'
+      summary: users
+swagger: "2.0"

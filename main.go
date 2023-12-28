@@ -41,6 +41,15 @@ var error_400 = Error{
 	Message: "リクエストパラメータが不足しています",
 }
 
+// handler godoc
+// @Summary users
+// @Description get the users list
+// @Accept  json
+// @Produce  json
+// @Param  service query string true "Service you want to get the users list"
+// @Success 200 {object} main.User
+// @Failure 400 {object} main.Error
+// @Router /users [get]
 func handler(w http.ResponseWriter, r *http.Request) {
 
 	var buf bytes.Buffer         // バイトデータを一時的に格納するためのメモリ上のバッファ
